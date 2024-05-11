@@ -1,0 +1,58 @@
+<!--This file allows the template to be run from base.html-->
+
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<style>
+    .list-group {
+        position: relative;
+        margin-bottom: 10px;
+    }
+    #deleteButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    #submitButton {
+        padding: 10px 15px;
+    }
+</style>
+<!-- Start of the showing notes -->
+<br />
+<h1 align="center">Notes</h1>
+<br />
+
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group">
+        {{ note.data }}
+        <button id="deleteButton" class="btn btn-sm btn btn-danger" onclick="deleteNote({{ note.id }})">Delete item</button>
+        <br />
+    </li>
+    {% endfor %}
+</ul>
+<!--End of the showing notes-->
+
+<br />
+
+<!-- Start of the form for notes -->
+<form method="POST">
+    <div class="mb-3">
+        <label for="note" class="form-label">Add a note here</label>
+        <textarea name="note" class="form-control" id="note" rows="3"></textarea>
+    </div>
+
+    <div align="center">
+        <button id="submitButton" type="submit" class="d-grid btn btn-outline-primary">Submit your note</button>
+    </div>
+</form>
+<br />
+<!-- End of the form for notes -->
+
+
+
+{% endblock %}

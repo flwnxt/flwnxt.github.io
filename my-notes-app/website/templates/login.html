@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+  a {
+  text-decoration: none
+  color: dark-yellow
+  }
+
+  a:hover{
+  cursor: pointer
+  }
+</style>
+
+<br />
+<h1>Login Page</h1>
+<br />
+
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>In this web app, you can note your thoughts, your friends' name or even your grocery list. In order to have access to create a note list, you have to be logged in. </p>
+  <hr>
+  <p class="mb-0">Do not have an account ? No problem, then. Click <a href="/sign-up"><b>here</b></a> and register.</p>
+</div>
+
+<br />
+<form method="POST">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
